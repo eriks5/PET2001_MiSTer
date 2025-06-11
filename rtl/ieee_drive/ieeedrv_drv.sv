@@ -229,8 +229,10 @@ wire  [7:0] ltrack;
 
 ieeedrv_sync #(SUBDRV) busy_sync(clk_sys, busy, sd_busy);
 
-ieeedrv_track #(SUBDRV) drv_track
-(
+ieeedrv_track #(
+	.SUBDRV(SUBDRV),
+	.PAUSE_CTL(PAUSE_CTL)
+) drv_track (
 	.clk_sys(clk_sys),
 	.reset(drv_reset),
 	.ce(ce),
